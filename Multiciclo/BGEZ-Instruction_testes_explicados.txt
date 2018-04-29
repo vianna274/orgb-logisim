@@ -1,8 +1,15 @@
+//Da 2 loads positivos em r1 e r2 
+//Da branch com r1, vai dar
+//Carrega numero negativo pra r1
+//Tenta BGEZ com r1
+//Dá BGEZ com r2
+//Mais um BGEZ com r2
 
-4210001 --> BGEZ pra testar 1 com offset = 1 (pula 1 instrucao)
-aaaaaaaa --> exemplo so pq vai ser pulado
-6210001  --> BGEZ com numero negativo e offset = 1 (nao deve pular)
-4010002  --> BGEZ com zero e offset = 2 (pula 2 proximas instructions)
-0 
-0 
-bbbbbbbb --> exemplo so para ver que pulou os 2 corretamente
+
+LW R1, 0(R0)    1000 1100 0000 0001 0000 0000 0000 0000
+LW R2, 4(R0)
+BGEZ R1,3
+LW R1, 8(R0)
+BGEZ R1,3
+BGEZ R2,3
+BGEZ R2,3

@@ -1,0 +1,8 @@
+
+4210001 --> BGEZ pra testar 1 com offset = 1 (pula 1 instrucao)
+aaaaaaaa --> exemplo so pq vai ser pulado
+6210001  --> BGEZ com numero negativo e offset = 1 (nao deve pular)
+4010002  --> BGEZ com zero e offset = 2 (pula 2 proximas instructions)
+0 
+0 
+bbbbbbbb --> exemplo so para ver que pulou os 2 corretamente

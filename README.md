@@ -1,6 +1,6 @@
-#MIPS Logisim
+# MIPS Logisim
 
-##Programa de teste
+## Programa de teste
 
 
 Cada diretório contém arquivos de memória destinados aos respectivos processadores. 

@@ -20,13 +20,13 @@ LW R1, 0(R0)        8c010000
 
 LW R2, 4(R0)        8c020004
 
-LW R8, 40(R0)       8c080028 -> 8c0800A8
+LW R8, 40(R0)       8c0800A8
 
 ADD R3, R1, R2      00221820
 
-JARL R4, R8         01002009 #ALTERAÇÃO
+JARL R4, R8         01002009
 
-ADD R3, R1, R2      00221820 #ALTERAÇÃO DEVE SER PULADA DEPOIS DE VOLTAR DO SEGUNDO JARL
+ADD R3, R1, R2      00221820 #DEVE SER PULADA DEPOIS DE VOLTAR DO SEGUNDO JARL
 
 SUB R3, R3, R2      00621822
 
@@ -112,10 +112,7 @@ v2.0 raw
 
 
 
-Ele carrega as duas primeiras posições da memória de dados (no multiciclo, carrega os endereços 40 e 44) em R1 e R2, 
-soma esses registradores e armazena em R3, faz a operação de JARL para outro JARL que por sua vez posiciona o PC na 
-próxima intrução. Em seguida, subtrai R3 de R2 e armazena em R3 e compara R3 com R1. Se os registradores forem iguais 
-(deu tudo certo), pula para LB3 e armazena R3 no endereço 8 (48 no multiciclo), se não, armazena R0 em 8.
+Ele carrega as duas primeiras posições da memória de dados (no multiciclo, carrega os endereços 40 e 44) em R1 e R2 e a décima primeira posição do segmento de dados para o R8 que servirá para o salto do primeiro jarl. Soma esses registradores e armazena em R3, faz a operação de JARL para outro JARL que por sua vez posiciona o PC na próxima intrução. Em seguida, subtrai R3 de R2 e armazena em R3 e compara R3 com R1. Se os registradores forem iguais (deu tudo certo), pula para LB3 e armazena R3 no endereço 8 (48 no multiciclo), se não, armazena R0 em 8. 
 Caso a primeira etapa seja concluída com sucesso, o programa fará AND entre os registradores R1 e R2 e armazenará o resultado
 em R5, e salva o R5 na quarta posição de memória. Em seguida, testa se R5 >= 0, caso positivo (deu certo) pula para LB2
 onde é armazenado o R5 na quinta posição de memória. Carrega em R5 o valor na oitava posição da memória (número negativo)
